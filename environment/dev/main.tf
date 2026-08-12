@@ -42,10 +42,10 @@ module "azurerm_subnet" {
   subnets = merge([
     for sub_key, vnet in var.subnets : {
       for subnet_key, subnet in vnet.subnet : "${sub_key}-${subnet_key}" => {
-        virtual_network_name           = vnet.vnet_name
-        resource_group_name = vnet.resource_group_name
-        name                = subnet.name
-        address_prefixes      = subnet.address_prefix
+        virtual_network_name = vnet.vnet_name
+        resource_group_name  = vnet.resource_group_name
+        name                 = subnet.name
+        address_prefixes     = subnet.address_prefix
       }
     }
   ]...)
