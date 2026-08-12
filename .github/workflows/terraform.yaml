@@ -1,0 +1,28 @@
+name: terraform-ci
+
+on:
+  push:
+    branches:
+      - main
+job:
+  build:
+    - runs-on:ubuntu-latest
+
+      defaults:
+        run:
+          working-directory: ./environment/dev
+
+      steps:
+        uses: actions/checkout@v7
+
+      - name : setup terraform
+      - uses: hashicorp/setup-terraform@v4
+
+      - name : terraform init
+      - run : terraform init
+
+      - name : format terraform files
+      - run : terraform fmt
+
+      - name : validate
+      - run : terraform validate
