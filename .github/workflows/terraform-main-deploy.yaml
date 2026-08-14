@@ -41,13 +41,11 @@ jobs:
 
       - name: plan
         run: terraform plan
-        with:
-          env:
-            TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+        env:
+          TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
 
       - name: apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
-        with:
-          env:
-            TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+        env:
+          TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
