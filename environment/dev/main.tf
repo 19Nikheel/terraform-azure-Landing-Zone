@@ -100,7 +100,7 @@ module "azurerm_virtual_machine" {
       network_interface_id = module.azurerm_nic.network_interface_id[vm.network_interface_id]
       size                 = vm.size
       admin_username       = vm.admin_username
-//      ssh_public_key       = file("~/.ssh/id_rsa.pub") // comment this varible in variable.tf  for local
+      //      ssh_public_key       = file("~/.ssh/id_rsa.pub") // comment this varible in variable.tf  for local
       ssh_public_key       = var.ssh_public_key // remote
       os_disk_caching      = vm.os_disk_caching
       storage_account_type = vm.storage_account_type
