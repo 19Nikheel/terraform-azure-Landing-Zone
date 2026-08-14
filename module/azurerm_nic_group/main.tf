@@ -8,5 +8,6 @@ resource "azurerm_network_interface" "example" {
     name                          = each.value.ip_configuration_name
     subnet_id                     = each.value.subnet_id
     private_ip_address_allocation = each.value.private_ip_address_allocation
+    public_ip_address_id = each.value.public_ip_address_id
   }
 }
